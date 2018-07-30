@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required Meta Tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Optional Meta Tags -->
+    {% block meta_tags %}
+    {% endblock %}
+    <!-- Framework CSS -->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}"  media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/k_0.png')}}"/>
+    <!-- Javascript -->
+    <!-- JQUERY -->
+    <script language="JavaScript"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    
+    <!-- Change the title of the page depending on what's being displayed -->
+    <title>
+      {% block c_title %}
+      {% endblock %}
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}"/>
+    {% block style %}
+    {% endblock %}
+    
+    {% include "includes/easter_egg.html" %}
+    
+  </head>
+
+  <body>
+
+    <!-- Navbar - Consistent across all pages-->
+    {% include "includes/navbar.html" %}
+
+    <!-- Actual Page Related-->
+    <main>
+      <div class="container" id="all">
+        <div class="header">
+          {% block header %}
+          {% endblock %}
+        </div>
+        <div class="content">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer - Consistent across all pages-->
+    {% include "includes/footer.html" %}
+
+    <!-- Materialize JS for optimized loading -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+    <!-- initialize sidebar -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/sidenavInit.js') }}"></script>
+    <!-- Materialize toast flash -->
+
+    <script>
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      M.toast({
+      html: '{{ message }}',
+      displayLength: 4000
+      });
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+    </script>
+    {% block scripts %}
+    {% endblock %}
+  </body>
+</html>

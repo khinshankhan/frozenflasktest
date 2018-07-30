@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>List of stuff</h2>
+
+
+<ul class="collection" id="collection">
+  {% for page in (posts|sort(attribute='date', reverse = True)) %}
+  <li class="collection-item avatar" id="item-template">
+    <span class={{page.title}}>{{page.title}}</span>
+    <p>{{ page.date }}</p>
+    <p> {{page.path}} </p>
+    {% set path = page.path.split('/')[1] %}
+
+    <a href="{{ url_for("post", name=path) }}" class="secondary-content"><i class="material-icons">navigate_next</i></a>
+  </li>
+  {% else %}
+  <li>No stuff.</li>
+  {% endfor %}
+</ul>
+{% endblock content %}
