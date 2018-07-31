@@ -15,17 +15,19 @@ app.config.from_object(__name__)
 flatpages = FlatPages(app)
 freezer = Freezer(app)
 
-@app.route('/')
+PREFIX="/frozenflasktest"
+
+@app.route(PREFIX+'/')
 def index():
     return render_template('index.html', pages=flatpages)
 
-@app.route("/posts/")
+@app.route(PREFIX+"/posts/")
 def posts():
     posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
     posts.sort(key=lambda item:item['date'], reverse=False)
     return render_template('posts.html', posts=posts)
 
-@app.route('/posts/<name>/')
+@app.route(PREFIX+'/posts/<name>/')
 def post(name):
     path = '{}/{}'.format(POST_DIR, name)
     post = flatpages.get_or_404(path)
