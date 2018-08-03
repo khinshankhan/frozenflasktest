@@ -21,6 +21,16 @@ PREFIX="/frozenflasktest"
 def index():
     return render_template('index.html', pages=flatpages)
 
+@app.route(PREFIX+'/about')
+def about():
+    skills = {
+        "HTML": 90,
+        "CSS": 90,
+        "JS": 70,
+        "Sass": 60
+    }
+    return render_template('about.html', skills=skills)
+
 @app.route(PREFIX+"/posts/")
 def posts():
     posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
@@ -37,4 +47,4 @@ if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "build":
         freezer.freeze()
     else:
-        app.run(port=5000)
+      app.run(port=5000)

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block style %}
+<style type="text/css">
+ .dark-area {
+     background-color: #666;
+     padding: 40px;
+     margin: 0 -40px 20px -40px;
+     clear: both;
+ }
+ .clearfix:before,.clearfix:after {content: " "; display: table;}
+ .clearfix:after {clear: both;}
+ .clearfix {*zoom: 1;}
+</style>
+
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='circle/css/circle.css') }}"/>
+{% endblock %}
+
+{% block c_title %}
+About | Khinshan Khan
+{% endblock %}
+
+
+
+{% block content %}
+<!-- default -->
+
+{% for skill_row in skills | batch(3) %}
+<div class="row">
+    {% for skill in skill_row %}
+
+    <div class="col s12 m4">
+        <div class="c100 p{{skills[skill]}} big">
+            <span>{{skill}}</span>
+            <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+{% endfor %}
+
+{% endblock content %}
