@@ -106,3 +106,15 @@ $.fn.pageMe = function(opts){
 
     }
 };
+
+$(document).ready(function(){
+    $('#myTable').pageMe({
+	pagerSelector:'#myPager',
+	activeColor: 'blue',
+	prevText:'Anterior',
+	nextText:'Siguiente',
+	showPrevNext:true,
+	hidePageNumbers:false,
+	perPage:1
+    });
+});
