@@ -31,7 +31,7 @@ def about():
     }
     return render_template('about.html', skills=skills)
 
-@app.route(PREFIX+"/posts/")
+@app.route(PREFIX+"/blog/posts/")
 def posts():
     posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
     posts.sort(key=lambda item:item['date'], reverse=False)
@@ -43,10 +43,19 @@ def post(name):
     post = flatpages.get_or_404(path)
     return render_template('post.html', post=post)
 
-@app.route(PREFIX+'/posts/tag/<string:tag>/')
+@app.route(PREFIX+"/blog/tags/")
+def tags():
+    tags = []
+    for p in flatpages:
+        t = p.meta.get('tags', [])
+        tags = list(set().union(tags,t))
+    tags.sort()
+    return render_template('posts.html', tags=tags)
+
+@app.route(PREFIX+'/blog/tag/<string:tag>/')
 def tag(tag):
     tagged = [p for p in flatpages if tag in p.meta.get('tags', [])]
-    return render_template('tag.html', pages=tagged, tag=tag)
+    return render_template('tag.html', posts=tagged, tag=tag)
 
 
 if __name__ == '__main__':

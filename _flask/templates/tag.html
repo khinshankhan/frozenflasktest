@@ -1,19 +1,32 @@
 {% extends "base.html" %}
 
-{% block content %}
-<h2>List of stuff tagged <em>{{ tag }}</em></h2>
-<ul>
-  {% for page in pages %}
-  <li>
-    <a href="{{ url_for("post", name=path) }}">
-      <b>{{page.title}}</b>
-      <br>
-      <i>{{page.date}}</i>
-    </a>
+{% block style %}
+<style>
+  a {
+  color:inherit;
+  text-decoration: none;
+  }
+</style>
+{% endblock %}
 
-  </li>
-  {% else %}
-  <li>No page.</li>
-  {% endfor %}
-</ul>
-{% endblock content %}
+{% block c_title %}
+{{tag}} | Tags | Posts | Khinshan Khan
+{% endblock %}
+
+{% block content %}
+
+{% set title = "Posts tagged "+tag %}
+
+{% with posts=posts, title=title %}
+{% include "includes/_list.html" %}
+{% endwith %}
+
+{% endblock %}
+
+{% block scripts %}
+
+{% with num=5 %}
+{% include "includes/_listjs.html" %}
+{% endwith %}
+
+{% endblock %}
