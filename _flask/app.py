@@ -1,5 +1,4 @@
 import sys
-
 from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_flatpages import FlatPages, pygments_style_defs
 from flask_frozen import Freezer
@@ -21,7 +20,7 @@ PREFIX="/frozenflasktest"
 def index():
     return render_template('index.html', pages=flatpages)
 
-@app.route(PREFIX+'/about/')
+@app.route(PREFIX+'/about')
 def about():
     skills = {
         "HTML": 90,
@@ -31,7 +30,7 @@ def about():
     }
     return render_template('about.html', skills=skills)
 
-@app.route(PREFIX+"/blog/posts/")
+@app.route(PREFIX+"/posts/")
 def posts():
     posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
     posts.sort(key=lambda item:item['date'], reverse=False)
@@ -43,7 +42,7 @@ def post(name):
     post = flatpages.get_or_404(path)
     return render_template('post.html', post=post)
 
-@app.route(PREFIX+"/blog/tags/")
+@app.route(PREFIX+"/tags")
 def tags():
     tags = []
     for p in flatpages:
@@ -52,7 +51,7 @@ def tags():
     tags.sort()
     return render_template('posts.html', tags=tags)
 
-@app.route(PREFIX+'/blog/tag/<string:tag>/')
+@app.route(PREFIX+'/tag/<string:tag>/')
 def tag(tag):
     tagged = [p for p in flatpages if tag in p.meta.get('tags', [])]
     return render_template('tag.html', posts=tagged, tag=tag)
