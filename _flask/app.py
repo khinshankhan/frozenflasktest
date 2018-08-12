@@ -21,7 +21,7 @@ PREFIX="/frozenflasktest"
 def index():
     return render_template('index.html', pages=flatpages)
 
-@app.route(PREFIX+'/about')
+@app.route(PREFIX+'/about/')
 def about():
     skills = {
         "HTML": 90,
@@ -42,6 +42,12 @@ def post(name):
     path = '{}/{}'.format(POST_DIR, name)
     post = flatpages.get_or_404(path)
     return render_template('post.html', post=post)
+
+@app.route(PREFIX+'/posts/tag/<string:tag>/')
+def tag(tag):
+    tagged = [p for p in flatpages if tag in p.meta.get('tags', [])]
+    return render_template('tag.html', pages=tagged, tag=tag)
+
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == "build":

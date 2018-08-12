@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>List of stuff tagged <em>{{ tag }}</em></h2>
+<ul>
+  {% for page in pages %}
+  <li>
+    <a href="{{ url_for("post", name=path) }}">
+      <b>{{page.title}}</b>
+      <br>
+      <i>{{page.date}}</i>
+    </a>
+
+  </li>
+  {% else %}
+  <li>No page.</li>
+  {% endfor %}
+</ul>
+{% endblock content %}

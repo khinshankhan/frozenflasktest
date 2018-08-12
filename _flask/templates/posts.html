@@ -34,6 +34,15 @@ Posts | Khinshan Khan
           <br>
           <i>{{page.date}}</i>
         </a>
+	<br>
+	{% if page.meta.tags|length %}
+        Tags:
+        {% for page_tag in page.meta.tags %}
+	<span class="new badge" data-badge-caption="">
+          <a href="{{ url_for("tag", tag=page_tag) }}">{{ page_tag }}</a>
+	</span>
+        {% endfor %}
+	{% endif %}
       </td>
     </tr>
     {% endfor %}
