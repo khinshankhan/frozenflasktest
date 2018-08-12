@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    
     <!-- Required Meta Tags -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Optional Meta Tags -->
+
+    <!-- Custom Meta Tags -->
     
     
+
     <!-- Framework CSS -->
     <link type="text/css" rel="stylesheet" href="/static/css/materialize.min.css"  media="screen,projection"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="/static/img/k_0.png"/>
-    <!-- Javascript -->
+
     <!-- JQUERY -->
     <script language="JavaScript"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
     
@@ -31,7 +37,8 @@ Numero Uno | Posts | Khinshan Khan
     <link rel="stylesheet" type="text/css" href="/static/css/base.css"/>
     
     
-    
+
+    <!-- Making every page better -->
     <!-- Credit to Mike Flynn (@thatmikeflynn) and Rob McVey (@negative_sleep) for the base code -->
 
 <script type="text/javascript" src="https://cdn.rawgit.com/mikeflynn/egg.js/master/egg.min.js"></script>
@@ -44,26 +51,45 @@ Numero Uno | Posts | Khinshan Khan
 
     <!-- Navbar - Consistent across all pages-->
     <header>
-    <nav class="white" role="navigation">
-        <div class="nav-wrapper container">
-            <a id="logo-container" class="brand-logo" href="/frozenflasktest/">
-                <img id="logo" src="/static/img/k_0.png" alt="K Logo">
-            </a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="/frozenflasktest/">Home</a></li>
-                <li><a href="/frozenflasktest/about">About</a></li>
-	              <li><a href="/frozenflasktest/posts/">Posts</a></li>
-	              <li><a href="static/files/resume.pdf">Resume</a></li>
-            </ul>
-            <ul id="nav-mobile" class="sidenav">
-	              <li><a href="/frozenflasktest/">Home</a></li>
-                <li><a href="/frozenflasktest/about">About</a></li>
-	              <li><a href="/frozenflasktest/posts/">Posts</a></li>
-	              <li><a href="static/files/resume.pdf">Resume</a></li>
-            </ul>
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        </div>
-    </nav>
+
+  <!-- Blog Dropdown Contents -->
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="/frozenflasktest/blog/posts/">Posts</a></li>
+    <li><a href="/frozenflasktest/blog/tags/">Tags</a></li>
+    <li class="divider"></li>
+  </ul>
+
+  <ul id="dropdown2" class="dropdown-content">
+    <li><a href="/frozenflasktest/blog/posts/">Posts</a></li>
+    <li><a href="/frozenflasktest/blog/tags/">Tags</a></li>
+    <li class="divider"></li>
+  </ul>
+  
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" class="brand-logo" href="/frozenflasktest/">
+        <img id="logo" src="/static/img/k_0.png" alt="K Logo">
+      </a>
+      
+      <!-- Full Navbar -->
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/frozenflasktest/">Home</a></li>
+        <li><a href="/frozenflasktest/about/">About</a></li>
+	<li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Blog<i class="material-icons right">arrow_drop_down</i></a></li>
+	<li><a href="static/files/resume.pdf">Resume</a></li>
+      </ul>
+      
+      <!-- Mobile Navbar -->
+      <ul id="nav-mobile" class="sidenav">
+	<li><a href="/frozenflasktest/">Home</a></li>
+        <li><a href="/frozenflasktest/about/">About</a></li>
+	<li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Blog<i class="material-icons right">arrow_drop_down</i></a></li>
+	<li><a href="static/files/resume.pdf">Resume</a></li>	
+      </ul>
+      
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
 </header>
 
     <!-- Actual Page Related-->
@@ -119,15 +145,18 @@ Numero Uno
 
     <!-- Materialize JS for optimized loading -->
     <script type="text/javascript" src="/static/js/materialize.min.js"></script>
-    <!-- initialize sidebar -->
-    <script type="text/javascript" src="/static/js/sidenavInit.js"></script>
+    
+    <!-- Initialize all general materialize elements -->
+    <script type="text/javascript" src="/static/js/initMaterialize.js"></script>
+    
     <!-- Materialize toast flash -->
-
     <script>
       
       
       
     </script>
+
+    <!-- Custom Javascript -->
     
     
   </body>
