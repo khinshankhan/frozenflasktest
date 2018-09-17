@@ -1,6 +1,6 @@
 cd ~/Documents/secondary
 
-rm -rf (.git|_flask|README.md|CNAME)
+rm -rf !(.|..|.git|_flask|README.md|CNAME)
 python _flask/app.py build
 mv _flask/build/* .
 mv frozenflasktest/* .
