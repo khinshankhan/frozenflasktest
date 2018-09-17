@@ -20,7 +20,7 @@ PREFIX="/frozenflasktest"
 def index():
     return render_template('index.html', pages=flatpages)
 
-@app.route(PREFIX+'/about')
+@app.route(PREFIX+'/about/')
 def about():
     skills = {
         "HTML": 90,
@@ -42,7 +42,7 @@ def post(name):
     post = flatpages.get_or_404(path)
     return render_template('post.html', post=post)
 
-@app.route(PREFIX+"/tags")
+@app.route(PREFIX+"/tags/")
 def tags():
     tags = []
     for p in flatpages:

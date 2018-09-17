@@ -29,19 +29,27 @@
     <!-- Change the title of the page depending on what's being displayed -->
     <title>
       
-Posts | Khinshan Khan
+About | Khinshan Khan
 
     </title>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="/static/css/base.css"/>
     
-<style>
-  a {
-  color:inherit;
-  text-decoration: none;
-  }
+<style type="text/css">
+ .dark-area {
+     background-color: #666;
+     padding: 40px;
+     margin: 0 -40px 20px -40px;
+     clear: both;
+ }
+ .clearfix:before,.clearfix:after {content: " "; display: table;}
+ .clearfix:after {clear: both;}
+ .clearfix {*zoom: 1;}
 </style>
+
+
+<link rel="stylesheet" type="text/css" href="/static/circle/css/circle.css"/>
 
 
     <!-- Making every page better -->
@@ -61,13 +69,13 @@ Posts | Khinshan Khan
   <!-- Blog Dropdown Contents -->
   <ul id="dropdown1" class="dropdown-content">
     <li><a href="/frozenflasktest/posts/">Posts</a></li>
-    <li><a href="/frozenflasktest/tags">Tags</a></li>
+    <li><a href="/frozenflasktest/tags/">Tags</a></li>
     <li class="divider"></li>
   </ul>
 
   <ul id="dropdown2" class="dropdown-content">
     <li><a href="/frozenflasktest/posts/">Posts</a></li>
-    <li><a href="/frozenflasktest/tags">Tags</a></li>
+    <li><a href="/frozenflasktest/tags/">Tags</a></li>
     <li class="divider"></li>
   </ul>
   
@@ -80,7 +88,7 @@ Posts | Khinshan Khan
       <!-- Full Navbar -->
       <ul class="right hide-on-med-and-down">
         <li><a href="/frozenflasktest/">Home</a></li>
-        <li><a href="/frozenflasktest/about">About</a></li>
+        <li><a href="/frozenflasktest/about/">About</a></li>
 	<li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Blog<i class="material-icons right">arrow_drop_down</i></a></li>
 	<li><a href="/static/files/resume.pdf">Resume</a></li>
       </ul>
@@ -88,7 +96,7 @@ Posts | Khinshan Khan
       <!-- Mobile Navbar -->
       <ul id="nav-mobile" class="sidenav">
 	<li><a href="/frozenflasktest/">Home</a></li>
-        <li><a href="/frozenflasktest/about">About</a></li>
+        <li><a href="/frozenflasktest/about/">About</a></li>
 	<li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Blog<i class="material-icons right">arrow_drop_down</i></a></li>
 	<li><a href="/static/files/resume.pdf">Resume</a></li>	
       </ul>
@@ -107,25 +115,63 @@ Posts | Khinshan Khan
         </div>
         <div class="content">
           
+<!-- default -->
 
 
-
-
-<table class="highlight" id="myTable">
-  <thead>
-    <tr>
-      <th><h4><b>Posts</b></h4></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="row">
     
-  </tbody>
-</table>
 
-<div class="col-md-12 center text-center">
-  <span class="left" id="total_reg"></span>
-  <ul class="pagination pager" id="myPager"></ul>
+    <div class="col s12 m4">
+        <div class="c100 p90 big">
+            <span>HTML</span>
+            <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="col s12 m4">
+        <div class="c100 p60 big">
+            <span>Sass</span>
+            <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="col s12 m4">
+        <div class="c100 p90 big">
+            <span>CSS</span>
+            <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<div class="row">
+    
+
+    <div class="col s12 m4">
+        <div class="c100 p70 big">
+            <span>JS</span>
+            <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+            </div>
+        </div>
+    </div>
+
+    
 </div>
 
 
@@ -173,26 +219,6 @@ Posts | Khinshan Khan
 
     <!-- Custom Javascript -->
     
-
-
-<script type="text/javascript" src="/static/js/pagination.js"></script>
-
-<script>
-  $(document).ready(function(){
-  $('#myTable').pageMe({
-  pagerSelector:'#myPager',
-  activeColor: 'blue',
-  prevText:'Anterior',
-  nextText:'Siguiente',
-  showPrevNext:true,
-  hidePageNumbers:false,
-  perPage:5
-  });
-  });
-</script>
-
-
-
-
+    
   </body>
 </html>
