@@ -18,20 +18,17 @@ Tags | Khinshan Khan
 {% endblock %}
 
 {% block content %}
-Tags
-<hr/>
+<h4><b>Tags</b></h4>
+<br>
+
 <div class="row">
-  {% for tag_row in tags | batch(6) %}
-  {% for tagg in tag_row %}
-  <div class="col s2">
+  {% for tagg in tags %}
+  <div class="col s3 m2">
     <div class="chip teal">
       <a href="{{ url_for("tag", tag=tagg) }}">{{ tagg }}</a>
     </div>
   </div>
   {% endfor %}
-  
-  {% endfor %}
 </div>
-<br>
 
 {% endblock content %}
