@@ -49,12 +49,12 @@ def tags():
         t = p.meta.get('tags', [])
         tags = list(set().union(tags,t))
     tags.sort()
-    return render_template('posts.html', tags=tags)
+    return render_template('tags.html', tags=tags)
 
 @app.route(PREFIX+'/tag/<string:tag>/')
 def tag(tag):
     tagged = [p for p in flatpages if tag in p.meta.get('tags', [])]
-    return render_template('tag.html', posts=tagged, tag=tag)
+    return render_template('tag.html', posts=tagged, tags=tagged, tagg=tag)
 
 
 if __name__ == '__main__':

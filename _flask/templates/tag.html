@@ -10,12 +10,12 @@
 {% endblock %}
 
 {% block c_title %}
-{{tag}} | Tags | Posts | Khinshan Khan
+{{tagg}} | Tag | Khinshan Khan
 {% endblock %}
 
 {% block content %}
 
-{% set title = "Posts tagged "+tag %}
+{% set title =tagg %}
 
 {% with posts=posts, title=title %}
 {% include "includes/_list.html" %}

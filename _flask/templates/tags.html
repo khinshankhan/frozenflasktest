@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block style %}
+<style type="text/css">
+  span.badge{
+  float: none !important;
+  }
+
+  a {
+  color:white;
+  text-decoration: none;
+  }
+</style>
+{% endblock %}
+
+{% block c_title %}
+Tags | Khinshan Khan
+{% endblock %}
+
+{% block content %}
+Tags
+<hr/>
+<div class="row">
+  {% for tag_row in tags | batch(6) %}
+  {% for tagg in tag_row %}
+  <div class="col s2">
+    <div class="chip teal">
+      <a href="{{ url_for("tag", tag=tagg) }}">{{ tagg }}</a>
+    </div>
+  </div>
+  {% endfor %}
+  
+  {% endfor %}
+</div>
+<br>
+
+{% endblock content %}
